@@ -76,3 +76,4 @@ group :production do
 end
 gem 'active_hash'
 gem 'jp_prefecture'
+gem 'devise'
