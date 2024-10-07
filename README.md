@@ -12,7 +12,7 @@
 
 ### Association
 has_many :items
-has_one :order
+has_many :orders
 
 # Itemsテーブル
 | Column                         | Type       | Options                       |
@@ -41,14 +41,14 @@ belongs_to :item
 belongs_to :user
 has_one :address
 # Addressesテーブル
-| Column         | Type       | Options           |
-| -------------- | ---------- | ----------------- |
-| post_number    | string     | null: false       |
-| municipalities | string     | null: false       |
-| street_address | string     | null: false       |
-| building_name  | string     |                   |
-| phone_number   | string     | null: false       |
-| order          | references | foreign_key: true |
-| area_id        | integer    | null:false        |
+| Column         | Type       | Options                       |
+| -------------- | ---------- | ----------------------------- |
+| post_number    | string     | null: false                   |
+| municipalities | string     | null: false                   |
+| street_address | string     | null: false                   |
+| building_name  | string     |                               |
+| phone_number   | string     | null: false                   |
+| order          | references | foreign_key: true,null: false |
+| area_id        | integer    | null:false                    |
 ### Association
 belongs_to :order
