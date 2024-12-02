@@ -1,4 +1,4 @@
-class Estimated_sipping_date < ActiveHash::Base
+class EstimatedShippingDate < ActiveHash::Base
   data[
     { id: 1, name: '---' },
     { id: 2, name: '1~2日で発送' },
