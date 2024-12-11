@@ -1,0 +1,36 @@
+ja:
+  activerecord:
+    attributes:
+      item:
+        item_name: "商品名"
+        description: "説明"
+        price: "価格"
+        image: "画像"
+        area_id: "発送元地域"
+        category_id: "カテゴリー"
+        condition_id: "商品の状態"
+        estimated_shipping_date_id: "発送までの日数"
+        shipping_cost_responsibility_id: "配送料の負担"
+    errors:
+      models:
+        item:
+          attributes:
+            item_name:
+              blank: "を入力してください"
+            description:
+              blank: "を入力してください"
+            price:
+              blank: "を入力してください"
+              not_a_number: "は数値で入力してください"
+            image:
+              blank: "を添付してください"
+            area:
+              blank: "を選択してください"
+            category:
+              blank: "を選択してください"
+            condition:
+              blank: "を選択してください"
+            estimated_shipping_date:
+              blank: "を選択してください"
+            shipping_cost_responsibility:
+              blank: "を選択してください"
