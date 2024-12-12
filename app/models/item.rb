@@ -12,5 +12,5 @@ class Item < ApplicationRecord
   belongs_to :estimated_shipping_date
   belongs_to :shipping_cost_responsibility
   validates :area_id, :category_id, :condition_id, :estimated_shipping_date_id, :shipping_cost_responsibility_id,
-            numericality: { other_than: 1, message: 'を入力してください' }
+            numericality: { other_than: 1, message: 'を選択してください' }
 end

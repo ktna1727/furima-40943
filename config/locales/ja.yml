@@ -22,15 +22,19 @@ ja:
             price:
               blank: "を入力してください"
               not_a_number: "は数値で入力してください"
+              greater_than: "は300円以上で入力してください"
+              less_than_or_equal_to: "は9,999,999円以下で入力してください"
             image:
               blank: "を添付してください"
-            area:
-              blank: "を選択してください"
-            category:
-              blank: "を選択してください"
-            condition:
-              blank: "を選択してください"
-            estimated_shipping_date:
-              blank: "を選択してください"
-            shipping_cost_responsibility:
-              blank: "を選択してください"
+            category_id:
+              other_than: "を選択してください"
+            condition_id:
+              other_than: "を選択してください"
+            shipping_cost_responsibility_id:
+              other_than: "を選択してください"
+            area_id:
+              other_than: "を選択してください"
+            estimated_shipping_date_id:
+              other_than: "を選択してください"
+            user:
+              required: "を入力してください"
