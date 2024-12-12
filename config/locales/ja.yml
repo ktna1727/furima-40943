@@ -11,6 +11,7 @@ ja:
         condition_id: "商品の状態"
         estimated_shipping_date_id: "発送までの日数"
         shipping_cost_responsibility_id: "配送料の負担"
+        user: "ユーザー"
     errors:
       models:
         item:
@@ -37,4 +38,4 @@ ja:
             estimated_shipping_date_id:
               other_than: "を選択してください"
             user:
-              required: "を入力してください"
+              required: "としてログインしてください"

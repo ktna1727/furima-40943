@@ -84,6 +84,12 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('価格 は数値で入力してください')
       end
+
+      it 'ユーザーがログインしていない場合は出品できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('ユーザー としてログインしてください')
+      end
     end
   end
 end
