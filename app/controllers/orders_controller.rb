@@ -2,11 +2,19 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item
   def index
-    @order = Order.new
+    @order_form = OrderForm.new
   end
 
   def create
-    Order.create(order_params)
+    @order_form = OrderForm.new(order_params)
+    if @order_form.valid?
+      @order_form.save
+      redirect_to root_path, notice: '購入が完了しました'
+    else
+      render :index, status: :unprocessable_entity
+    end
+
+    redirect_to root_path
   end
 
   private
@@ -21,6 +29,6 @@ class OrdersController < ApplicationController
   end
 
   def correct_user
-    redirect_to root_path unless current_user.id == @item.user_id
+    redirect_to root_path if current_user.id == @item.user_id
   end
 end

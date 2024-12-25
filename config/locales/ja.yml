@@ -17,6 +17,12 @@ ja:
         estimated_shipping_date_id: "発送までの日数"
         shipping_cost_responsibility_id: "配送料の負担"
         user: "ユーザー"
+      address:
+        post_number: "電話番号"
+        municipalities: "市区町村"
+        street_address: "番地"
+        phone_number: "電話番号"
+        area_id: "都道府県"
     errors:
       models:
         item:
@@ -44,3 +50,18 @@ ja:
               other_than: "を選択してください"
             user:
               required: "としてログインしてください"
+        address:
+             post_number: 
+               blank: "を入力してください"
+               not_a_number: "は数値で入力してください"
+               invalid: "は3桁-4桁で入力してください"
+             phone_number:
+               blank: "を入力してください"
+               invalid: "は10から11桁で入力してください"
+               not_a_number: "は数値で入力してください"
+             municipalities: 
+               blank: "を入力してください"
+             street_address:
+               blank: "を入力してください"
+             area_id: 
+                other_than: "を選択してください"
