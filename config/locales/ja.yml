@@ -6,6 +6,13 @@ ja:
       - :day
   activerecord:
     attributes:
+     order_form:
+        post_number: "郵便番号"
+        municipalities: "市区町村"
+        street_address: "番地"
+        phone_number: "電話番号"
+        area_id: "都道府県"
+        token: "カード情報"
       item:
         item_name: "商品名"
         description: "説明"
@@ -65,3 +72,19 @@ ja:
                blank: "を入力してください"
              area_id: 
                 other_than: "を選択してください"
+        order_form:
+          attributes:
+            post_number:
+              blank: "を入力してください"
+              invalid: "は3桁-4桁の半角数字で入力してください"
+            municipalities:
+              blank: "を入力してください"
+            street_address:
+              blank: "を入力してください"
+            phone_number:
+              blank: "を入力してください"
+              invalid: "は10から11桁の半角数字で入力してください"
+            area_id:
+              other_than: "を選択してください"
+            token:
+              blank: "を入力してください"
