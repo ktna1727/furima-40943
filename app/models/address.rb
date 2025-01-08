@@ -5,5 +5,5 @@ class Address < ApplicationRecord
   validates :phone_number, format: { with: /\A[0-9]{10,11}\z/, message: 'は10から11桁の半角数字で入力してください' }
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :area
-  validates :area_id, numericality: { other_than: 0, message: 'を選択してください' }
+  validates :area_id, numericality: { other_than: 1, message: 'を選択してください' }
 end

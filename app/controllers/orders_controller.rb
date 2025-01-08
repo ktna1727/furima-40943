@@ -7,7 +7,6 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
     @order_form = OrderForm.new
-    Rails.logger.debug(@order_form.inspect)
   end
 
   def create
@@ -27,7 +26,7 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order_form).permit(:post_number, :area_id, :municipalities, :street_address, :building_name, :phone_number)
-          .merge(user_id: current_user.id, item_id: @item.id, token: params[:token])
+          .merge(user_id: current_user.id, item_id: @item.id, token: params[:token], existing_image: params[:existing_image])
   end
 
   def set_item
