@@ -4,43 +4,99 @@ ja:
       - :year
       - :month
       - :day
-  activerecord:
+  activemodel:
     attributes:
+      shared:
+        post_number: &post_number "郵便番号"
+        municipalities: &municipalities "市区町村"
+        street_address: &street_address "番地"
+        phone_number: &phone_number "電話番号"
+        area_id: &area_id "都道府県"
+      order_form:
+        post_number: *post_number
+        municipalities: *municipalities
+        street_address: *street_address
+        phone_number: *phone_number
+        area_id: *area_id
+        token: "カード情報"
+        user_id: "ユーザー情報"
+        item_id: "商品情報"
       item:
         item_name: "商品名"
         description: "説明"
         price: "価格"
         image: "画像"
-        area_id: "発送元地域"
         category_id: "カテゴリー"
         condition_id: "商品の状態"
         estimated_shipping_date_id: "発送までの日数"
         shipping_cost_responsibility_id: "配送料の負担"
+        area_id: "発送元地域"
         user: "ユーザー"
+      address:
+        post_number: *post_number
+        municipalities: *municipalities
+        street_address: *street_address
+        phone_number: *phone_number
+        area_id: *area_id
     errors:
       models:
         item:
           attributes:
             item_name:
-              blank: "を入力してください"
+              blank: "商品名を入力してください"
             description:
-              blank: "を入力してください"
+              blank: "説明を入力してください"
             price:
-              blank: "を入力してください"
-              not_a_number: "は数値で入力してください"
-              greater_than: "は300円以上で入力してください"
-              less_than_or_equal_to: "は9,999,999円以下で入力してください"
+              blank: "価格を入力してください"
+              not_a_number: "価格は数値で入力してください"
+              greater_than: "価格は300円以上で入力してください"
+              less_than_or_equal_to: "価格は9,999,999円以下で入力してください"
             image:
-              blank: "を添付してください"
+              blank: "画像を添付してください"
             category_id:
-              other_than: "を選択してください"
+              other_than: "カテゴリーを選択してください"
             condition_id:
-              other_than: "を選択してください"
+              other_than: "商品の状態を選択してください"
             shipping_cost_responsibility_id:
-              other_than: "を選択してください"
+              other_than: "配送料の負担を選択してください"
+            area_id:
+              other_than: "発送元地域を選択してください"
+            estimated_shipping_date_id:
+              other_than: "発送までの日数を選択してください"
+            user:
+              required: "ユーザーとしてログインしてください"
+        address:
+          attributes:
+            post_number:
+              blank: "郵便番号を入力してください"
+              invalid: "郵便番号は3桁-4桁の半角数字で入力してください"
+            phone_number:
+              blank: "電話番号を入力してください"
+              invalid: "電話番号は10から11桁の半角数字で入力してください"
+              not_a_number: "電話番号は数値で入力してください"
+            municipalities:
+              blank: "市区町村を入力してください"
+            street_address:
+              blank: "番地を入力してください"
+            area_id:
+              other_than: "都道府県を選択してください"
+        order_form:
+          attributes:
+            post_number:
+              blank: "を入力してください"
+              invalid: "は3桁-4桁の半角数字で入力してください"
+            municipalities:
+              blank: "を入力してください"
+            street_address:
+              blank: "を入力してください"
+            phone_number:
+              blank: "を入力してください"
+              invalid: "は10から11桁の半角数字で入力してください"
             area_id:
               other_than: "を選択してください"
-            estimated_shipping_date_id:
-              other_than: "を選択してください"
-            user:
-              required: "としてログインしてください"
+            token:
+              blank: "を入力してください"
+            user_id:
+              blank: "が紐付いていません"
+            item_id:
+              blank: "が紐付いていません"
