@@ -21,6 +21,11 @@ RSpec.describe OrderForm, type: :model do
     it '全ての値が正しく入力されていれば保存できる' do
       expect(@order_form).to be_valid
     end
+
+    it '建物名が空でも購入できる' do
+      @order_form.building_name = nil
+      expect(@order_form).to be_valid
+    end
   end
 
   context '内容に問題がある場合' do
@@ -60,12 +65,33 @@ RSpec.describe OrderForm, type: :model do
       expect(@order_form.errors.full_messages).to include('電話番号 を入力してください')
     end
 
-    it '電話番号が正しい形式でないと保存できない' do
+    it '電話番号に半角数字以外が含まれている場合は保存できない' do
       @order_form.phone_number = '090-1234-5678'
       expect(@order_form).to_not be_valid
       expect(@order_form.errors.full_messages).to include('電話番号 は10から11桁の半角数字で入力してください')
     end
 
+    it '電話番号が9桁以下では保存できない' do
+      @order_form.phone_number = '090123456'
+      expect(@order_form).to_not be_valid
+      expect(@order_form.errors.full_messages).to include('電話番号 は10から11桁の半角数字で入力してください')
+    end
+
+    it '電話番号が12桁以上では保存できない' do
+      @order_form.phone_number = '090123456789'
+      expect(@order_form).to_not be_valid
+      expect(@order_form.errors.full_messages).to include('電話番号 は10から11桁の半角数字で入力してください')
+    end
+    it 'ユーザーが紐付いていなければ購入できない' do
+      @order_form.user_id = nil
+      expect(@order_form).to_not be_valid
+      expect(@order_form.errors.full_messages).to include('ユーザー情報 が紐付いていません')
+    end
+    it '商品が紐付いていなければ購入できない' do
+      @order_form.item_id = nil
+      expect(@order_form).to_not be_valid
+      expect(@order_form.errors.full_messages).to include('商品情報 が紐付いていません')
+    end
     it 'クレジットカード情報（トークン）が空だと保存できない' do
       @order_form.token = nil
       expect(@order_form).to_not be_valid

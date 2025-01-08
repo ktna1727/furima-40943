@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
   before_action :correct_user, only: [:index, :create]
   before_action :redirect_if_sold, only: [:index, :create]
   def index
-    @item = Item.find(params[:item_id])
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
     @order_form = OrderForm.new
   end

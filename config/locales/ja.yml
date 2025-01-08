@@ -19,6 +19,8 @@ ja:
         phone_number: *phone_number
         area_id: *area_id
         token: "カード情報"
+        user_id: "ユーザー情報"
+        item_id: "商品情報"
       item:
         item_name: "商品名"
         description: "説明"
@@ -94,3 +96,7 @@ ja:
               other_than: "を選択してください"
             token:
               blank: "を入力してください"
+            user_id:
+              blank: "が紐付いていません"
+            item_id:
+              blank: "が紐付いていません"
