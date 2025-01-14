@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   validates :item_name, :description, :price, :area_id, :category_id, :condition_id, :estimated_shipping_date_id,
             :shipping_cost_responsibility_id, :image, presence: true
   has_one_attached :image
-  validates :price, numericality: { only_integer: true, greater_than: 300, less_than_or_equal_to: 9_999_999 },
+  validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
                     format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :area
