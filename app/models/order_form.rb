@@ -6,13 +6,16 @@ class OrderForm
   with_options presence: true do
     validates :municipalities
     validates :street_address
-    validates :area_id, numericality: { other_than: 1, message: 'を選択してください' }
-    validates :post_number, format: { with: /\A\d{3}-\d{4}\z/, message: 'は3桁-4桁の半角数字で入力してください' }
-    validates :phone_number, format: { with: /\A[0-9]{10,11}\z/, message: 'は10から11桁の半角数字で入力してください' }
+    validates :post_number, format: { with: /\A\d{3}-\d{4}\z/ }
+    validates :phone_number, format: { with: /\A[0-9]{10,11}\z/ }
     validates :user_id
     validates :item_id
     validates :token
   end
+  def self.model_name
+    ActiveModel::Name.new(self, nil, 'OrderForm')
+  end
+
   def save
     order = Order.create(user_id:, item_id:)
     Address.create(

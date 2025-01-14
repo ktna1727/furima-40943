@@ -4,42 +4,68 @@ ja:
       - :year
       - :month
       - :day
+
   activemodel:
     attributes:
       shared:
-        post_number: &post_number "郵便番号"
-        municipalities: &municipalities "市区町村"
-        street_address: &street_address "番地"
-        phone_number: &phone_number "電話番号"
-        area_id: &area_id "都道府県"
+        post_number: "郵便番号"
+        municipalities: "市区町村"
+        street_address: "番地"
+        phone_number: "電話番号"
+        area_id: "都道府県"
+
       order_form:
-        post_number: *post_number
-        municipalities: *municipalities
-        street_address: *street_address
-        phone_number: *phone_number
-        area_id: *area_id
+        post_number: "郵便番号"
+        municipalities: "市区町村"
+        street_address: "番地"
+        phone_number: "電話番号"
+        area_id: "都道府県"
         token: "カード情報"
         user_id: "ユーザー情報"
         item_id: "商品情報"
-      item:
-        item_name: "商品名"
-        description: "説明"
-        price: "価格"
-        image: "画像"
-        category_id: "カテゴリー"
-        condition_id: "商品の状態"
-        estimated_shipping_date_id: "発送までの日数"
-        shipping_cost_responsibility_id: "配送料の負担"
-        area_id: "発送元地域"
-        user: "ユーザー"
-      address:
-        post_number: *post_number
-        municipalities: *municipalities
-        street_address: *street_address
-        phone_number: *phone_number
-        area_id: *area_id
+
+    errors:
+      models:
+        order_form:
+          attributes:
+            post_number:
+              blank: "を入力してください"
+              invalid: "は3桁-4桁の半角数字で入力してください"
+            phone_number:
+              blank: "を入力してください"
+              invalid: "は10から11桁の半角数字で入力してください"
+            municipalities:
+              blank: "を入力してください"
+            street_address:
+              blank: "を入力してください"
+            token:
+              blank: "を入力してください"
+          blank: "を入力してください" 
+
+  errors:
+    attributes:
+      post_number:
+        blank: "郵便番号を入力してください"
+      phone_number:
+        blank: "電話番号を入力してください"
+
+    messages:
+      blank: "を入力してください"
+      invalid: "は正しい形式で入力してください"
+      other_than: "を選択してください"
+
   activerecord:
     attributes:
+      user:
+        email: "メールアドレス"
+        nick_name: "ニックネーム"
+        password: "パスワード"
+        birthday: "生年月日"
+        first_name: "名前"
+        last_name: "名字"
+        first_name_kana: "名前（カナ）"
+        last_name_kana: "名字（カナ）"
+
       item:
         item_name: "商品名"
         description: "説明"
@@ -50,6 +76,7 @@ ja:
         estimated_shipping_date_id: "発送までの日数"
         shipping_cost_responsibility_id: "配送料の負担"
         area_id: "発送元地域"
+
     errors:
       models:
         item:
@@ -63,52 +90,9 @@ ja:
               not_a_number: "は数値で入力してください"
               greater_than: "は300円以上で入力してください"
               less_than_or_equal_to: "は9,999,999円以下で入力してください"
-            image:
-              blank: "を添付してください"
-            category_id:
-              other_than: "を選択してください"
-            condition_id:
-              other_than: "を選択してください"
-            shipping_cost_responsibility_id:
-              other_than: "を選択してください"
-            area_id:
-              other_than: "を選択してください"
-            estimated_shipping_date_id:
-              other_than: "を選択してください"
-            user:
-              required: "ユーザーとしてログインしてください"
-        address:
-          attributes:
-            post_number:
-              blank: "郵便番号を入力してください"
-              invalid: "郵便番号は3桁-4桁の半角数字で入力してください"
-            phone_number:
-              blank: "を入力してください"
-              invalid: "は10から11桁の半角数字で入力してください"
-              not_a_number: "は数値で入力してください"
-            municipalities:
-              blank: "を入力してください"
-            street_address:
-              blank: "を入力してください"
-            area_id:
-              other_than: "を選択してください"
-        order_form:
-          attributes:
-            post_number:
-              blank: "郵便番号を入力してください"
-              invalid: "郵便番号は3桁-4桁の半角数字で入力してください"
-            municipalities:
-              blank: "市区町村を入力してください"
-            street_address:
-              blank: "番地を入力してください"
-            phone_number:
-              blank: "電話番号を入力してください"
-              invalid: "電話番号は10から11桁の半角数字で入力してください"
-            area_id:
-              other_than: "都道府県を選択してください"
-            token:
-              blank: "カード情報を入力してください"
-            user_id:
-              blank: "ユーザー情報が紐付いていません"
-            item_id:
-              blank: "商品情報が紐付いていません"
+
+  devise:
+    failure:
+      invalid: "メールアドレスまたはパスワードが正しくありません"
+      user:
+        invalid: "メールアドレスまたはパスワードが正しくありません"
