@@ -92,7 +92,15 @@ ja:
               less_than_or_equal_to: "は9,999,999円以下で入力してください"
 
   devise:
+    sessions:
+      signed_out: "ログアウトしました"
     failure:
-      invalid: "メールアドレスまたはパスワードが正しくありません"
       user:
+        not_found_in_database: "メールアドレスまたはパスワードが正しくありません"
         invalid: "メールアドレスまたはパスワードが正しくありません"
+    registrations:
+      signed_up: "登録が完了しました"
+      updated: "アカウント情報を更新しました"
+    passwords:
+      send_instructions: "パスワードリセットの案内をメールで送りました"
+      updated: "パスワードが正常に更新されました"
